@@ -10,7 +10,7 @@ class ReportService
     public $request;
 
     public $defaultStatuses = [
-        'OPEN', 'TAKEN'
+        Report::OPEN_STATUS, Report::TAKEN_STATUS
     ];
 
     public function __construct(Request $request)

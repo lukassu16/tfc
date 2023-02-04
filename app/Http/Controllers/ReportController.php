@@ -52,7 +52,11 @@ class ReportController extends Controller
     public function update(Request $request, Report $report)
     {
         $request->validate([
-            'status' => Rule::in(['OPEN', 'TAKEN', 'CLOSED'])
+            'status' => Rule::in([
+                Report::OPEN_STATUS,
+                Report::CLOSED_STATUS,
+                Report::TAKEN_STATUS
+            ])
         ]);
 
         $report->update([
