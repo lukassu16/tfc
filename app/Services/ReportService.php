@@ -22,7 +22,7 @@ class ReportService
     {
         $reportsQuery = Report::query();
         
-        if (!Auth()->user()->hasRole('Administrator')) {
+        if (!Auth()->user()->hasRole('Admin')) {
             $reportsQuery = $reportsQuery->where('author_id', Auth()->user()->id);
         }
 
