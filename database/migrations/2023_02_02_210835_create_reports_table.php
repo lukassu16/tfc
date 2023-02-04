@@ -19,7 +19,7 @@ class CreateReportsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('category');
-            $table->string('status')->default('DRAFT');
+            $table->string('status')->default('OPEN');
             $table->foreignId('author_id');
         });
     }
