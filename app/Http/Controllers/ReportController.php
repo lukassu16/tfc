@@ -23,17 +23,14 @@ class ReportController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'title'         => 'required',
             'description'   => 'required',
             'category'      => 'required'
         ]);
 
-        Report::create([
-            array_merge(
-                $request->all(),
-                ['author_id' => Auth()->user()->id]
-            )
+        $report = Report::create($validatedData + [
+            'author_id'     => auth()->user()->id
         ]);
 
         return redirect('/reports');
